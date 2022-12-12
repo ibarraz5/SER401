@@ -1,0 +1,349 @@
+﻿{
+  "schema": {
+    "xmlns": "http://www.w3.org/2001/XMLSchema",
+    "targetNamespace": "cmac:2.0",
+    "xmlns:cmac": "cmac:2.0",
+    "xmlns:xs": "http://www.w3.org/2001/XMLSchema",
+    "elementFormDefault": "qualified",
+    "attributeFormDefault": "unqualified",
+    "element": [
+      {
+        "name": "CMAC_Alert_Attributes",
+        "annotation": {"documentation": "CMAC Alert Message (version 2.0)"},
+        "complexType": {
+          "sequence": {
+            "element": [
+              {
+                "name": "CMAC_protocol_version",
+                "type": "string"
+              },
+              {
+                "name": "CMAC_sending_gateway_id",
+                "type": "anyURI"
+              },
+              {
+                "name": "CMAC_message_number",
+                "simpleType": {
+                  "restriction": {
+                    "base": "hexBinary",
+                    "length": {
+                      "value": "4",
+                      "fixed": "true"
+                    }
+                  }
+                }
+              },
+              {
+                "name": "CMAC_referenced_message_number",
+                "minOccurs": "0",
+                "simpleType": {
+                  "restriction": {
+                    "base": "hexBinary",
+                    "length": {
+                      "value": "4",
+                      "fixed": "true"
+                    }
+                  }
+                }
+              },
+              {
+                "name": "CMAC_referenced_message_cap_identifier",
+                "type": "string",
+                "minOccurs": "0"
+              },
+              {
+                "name": "CMAC_special_handling",
+                "minOccurs": "0",
+                "simpleType": {
+                  "restriction": {
+                    "base": "string",
+                    "enumeration": [
+                      {"value": "Presidential"},
+                      {"value": "Child Abduction"},
+                      {"value": "Required Monthly Test"},
+                      {"value": "Public Safety"}
+                    ]
+                  }
+                }
+              },
+              {
+                "name": "CMAC_sender",
+                "type": "string",
+                "minOccurs": "0"
+              },
+              {
+                "name": "CMAC_sent_date_time",
+                "type": "dateTime"
+              },
+              {
+                "name": "CMAC_status",
+                "simpleType": {
+                  "restriction": {
+                    "base": "string",
+                    "enumeration": [
+                      {"value": "Actual"},
+                      {"value": "System"}
+                    ]
+                  }
+                }
+              },
+              {
+                "name": "CMAC_message_type",
+                "simpleType": {
+                  "restriction": {
+                    "base": "string",
+                    "enumeration": [
+                      {"value": "Alert"},
+                      {"value": "Update"},
+                      {"value": "Cancel"},
+                      {"value": "Ack"},
+                      {"value": "Error"},
+                      {"value": "RMT"},
+                      {"value": "Link Test"},
+                      {"value": "Transmission Control - Cease"},
+                      {"value": "Transmission Control - Resume"}
+                    ]
+                  }
+                }
+              },
+              {
+                "name": "CMAC_response_code",
+                "type": "string",
+                "minOccurs": "0",
+                "maxOccurs": "unbounded"
+              },
+              {
+                "name": "CMAC_note",
+                "type": "string",
+                "minOccurs": "0",
+                "maxOccurs": "unbounded"
+              },
+              {
+                "name": "CMAC_cap_alert_uri",
+                "type": "anyURI",
+                "minOccurs": "0"
+              },
+              {
+                "name": "CMAC_cap_identifier",
+                "type": "string",
+                "minOccurs": "0"
+              },
+              {
+                "name": "CMAC_cap_sent_date_time",
+                "type": "dateTime",
+                "minOccurs": "0"
+              },
+              {
+                "name": "CMAC_alert_info",
+                "minOccurs": "0",
+                "complexType": {
+                  "sequence": {
+                    "element": [
+                      {
+                        "name": "CMAC_category",
+                        "simpleType": {
+                          "restriction": {
+                            "base": "string",
+                            "enumeration": [
+                              {"value": "Geo"},
+                              {"value": "Met"},
+                              {"value": "Safety"},
+                              {"value": "Security"},
+                              {"value": "Rescue"},
+                              {"value": "Fire"},
+                              {"value": "Health"},
+                              {"value": "Env"},
+                              {"value": "Transport"},
+                              {"value": "Infra"},
+                              {"value": "CBRNE"},
+                              {"value": "Other"}
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "name": "CMAC_response_type",
+                        "minOccurs": "0",
+                        "simpleType": {
+                          "restriction": {
+                            "base": "string",
+                            "enumeration": [
+                              {"value": "Shelter"},
+                              {"value": "Evacuate"},
+                              {"value": "Prepare"},
+                              {"value": "Execute"},
+                              {"value": "Monitor"},
+                              {"value": "Avoid"},
+                              {"value": "Assess"},
+                              {"value": "None"}
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "name": "CMAC_severity",
+                        "simpleType": {
+                          "restriction": {
+                            "base": "string",
+                            "enumeration": [
+                              {"value": "Extreme"},
+                              {"value": "Severe"}
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "name": "CMAC_urgency",
+                        "simpleType": {
+                          "restriction": {
+                            "base": "string",
+                            "enumeration": [
+                              {"value": "Immediate"},
+                              {"value": "Expected"}
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "name": "CMAC_certainty",
+                        "simpleType": {
+                          "restriction": {
+                            "base": "string",
+                            "enumeration": [
+                              {"value": "Observed"},
+                              {"value": "Likely"}
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "name": "CMAC_expires_date_time",
+                        "type": "dateTime"
+                      },
+                      {
+                        "name": "CMAC_sender_name",
+                        "type": "string",
+                        "minOccurs": "0"
+                      },
+                      {
+                        "name": "CMAC_Alert_Area",
+                        "minOccurs": "0",
+                        "maxOccurs": "unbounded",
+                        "complexType": {
+                          "sequence": {
+                            "element": [
+                              {
+                                "name": "CMAC_area_description",
+                                "type": "string"
+                              },
+                              {
+                                "name": "CMAC_polygon",
+                                "type": "string",
+                                "minOccurs": "0",
+                                "maxOccurs": "unbounded"
+                              },
+                              {
+                                "name": "CMAC_circle",
+                                "type": "string",
+                                "minOccurs": "0",
+                                "maxOccurs": "unbounded"
+                              },
+                              {
+                                "name": "CMAC_cmas_geocode",
+                                "type": "string",
+                                "maxOccurs": "unbounded"
+                              },
+                              {
+                                "name": "CMAC_cap_geocode",
+                                "minOccurs": "0",
+                                "maxOccurs": "unbounded",
+                                "complexType": {
+                                  "sequence": {
+                                    "element": [
+                                      {"ref": "cmac:valueName"},
+                                      {"ref": "cmac:value"}
+                                    ]
+                                  }
+                                }
+                              },
+                              {
+                                "name": "CMAC_gnis",
+                                "type": "string",
+                                "minOccurs": "0",
+                                "maxOccurs": "unbounded"
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "name": "CMAC_Alert_Text",
+                        "maxOccurs": "unbounded",
+                        "complexType": {
+                          "sequence": {
+                            "element": [
+                              {
+                                "name": "CMAC_text_language",
+                                "simpleType": {
+                                  "restriction": {
+                                    "base": "string",
+                                    "enumeration": [
+                                      {"value": "English"},
+                                      {"value": "Spanish"}
+                                    ]
+                                  }
+                                }
+                              },
+                              {
+                                "name": "CMAC_short_text_alert_message_length",
+                                "type": "integer"
+                              },
+                              {
+                                "name": "CMAC_short_text_alert_message",
+                                "type": "string"
+                              },
+                              {
+                                "name": "CMAC_long_text_alert_message_length",
+                                "type": "integer"
+                              },
+                              {
+                                "name": "CMAC_long_text_alert_message",
+                                "type": "string"
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "name": "CMAC_Digital_Signature",
+                "minOccurs": "0",
+                "complexType": {
+                  "sequence": {
+                    "any": {
+                      "namespace": "http://www.w3.org/2000/09/xmldsig#",
+                      "processContents": "lax",
+                      "minOccurs": "0",
+                      "maxOccurs": "unbounded"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "valueName",
+        "type": "string"
+      },
+      {
+        "name": "value",
+        "type": "string"
+      }
+    ]
+  }
+}
